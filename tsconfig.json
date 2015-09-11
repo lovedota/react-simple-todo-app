@@ -1,0 +1,47 @@
+{
+    "compileOnSave": false,
+    "buildOnSave": false,
+    "compilerOptions": {
+        "target": "es6",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "experimentalAsyncFunctions": true,
+        "jsx": "react"
+    },
+    "filesGlob": [
+        "./**/*.ts",
+        "./**/*.tsx",
+        "!./node_modules/**/*.ts"
+    ],
+    "files": [
+        "./app/actions/todo-actions.ts",
+        "./app/constants/todo-constants.ts",
+        "./app/cores/dispatcher.ts",
+        "./app/decorators/handle-decorator.ts",
+        "./app/decorators/log-class-decorator.ts",
+        "./app/helpers/interaction-helpers.ts",
+        "./app/services/todo-services.ts",
+        "./app/stores/base-store.ts",
+        "./app/stores/todo-store.ts",
+        "./interfaces/bootstrap.d.ts",
+        "./interfaces/classnames.d.ts",
+        "./interfaces/events.d.ts",
+        "./interfaces/immutable.d.ts",
+        "./interfaces/jquery.d.ts",
+        "./interfaces/keymirror.d.ts",
+        "./interfaces/react-jsx.d.ts",
+        "./interfaces/react-motion.d.ts",
+        "./interfaces/react-tween-state.d.ts",
+        "./interfaces/react.d.ts",
+        "./interfaces/todo.d.ts",
+        "./typings/flux/flux.d.ts",
+        "./typings/tsd.d.ts",
+        "./app/components/todo/todo-item.tsx",
+        "./app/components/todo/todo-list.tsx",
+        "./app/components/todo/todo-page.tsx",
+        "./app/main.tsx"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
