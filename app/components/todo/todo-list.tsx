@@ -3,6 +3,7 @@ import './styles/todo-list.scss';
 import React from 'react';
 import {TransitionSpring, presets} from 'react-motion';
 import TodoActions from '../../actions/todo-actions';
+import TodoItem from './todo-item';
 
 function spring(val, config = presets.noWobble) {
   return {val, config};
@@ -59,20 +60,10 @@ class TodoApp extends React.Component<Props, State> {
     };
   }
 
-  handleDone = (key) => {
-    TodoActions.toggleTodo(key);
-  }
-
-  handleDestroy = (key) => {
-    TodoActions.removeTodo(key);
-  }
-
   handleToggleAll = () => {
     TodoActions.toggleAllTodos();
   }
 
-
-  // logic from todo, unrelated to animation
   handleChange = (event: any) => {
     this.setState({value: event.target.value});
     TodoActions.filterTodosByText(event.target.value);
@@ -109,21 +100,11 @@ class TodoApp extends React.Component<Props, State> {
                   data = currentValue[key].data;
 
                   return (
-                    <li key={key} style={style} className={data.isDone ? 'completed' : ''}>
-                      <div className="view">
-                        <input
-                          className="toggle"
-                          type="checkbox"
-                          onChange={this.handleDone.bind(null, key)}
-                          checked={data.isDone}
-                        />
-                         <label>{data.text}</label>
-                        <button
-                          className="destroy"
-                          onClick={this.handleDestroy.bind(null, key)}
-                        />
-                      </div>
-                    </li>
+                    <TodoItem
+                      key={key}
+                      style={style}
+                      todo={data}
+                    />
                   );
                 })}
               </ul>

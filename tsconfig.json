@@ -26,7 +26,6 @@
         "./interfaces/bootstrap.d.ts",
         "./interfaces/classnames.d.ts",
         "./interfaces/events.d.ts",
-        "./interfaces/immutable.d.ts",
         "./interfaces/jquery.d.ts",
         "./interfaces/keymirror.d.ts",
         "./interfaces/react-jsx.d.ts",

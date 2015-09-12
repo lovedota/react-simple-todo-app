@@ -3,7 +3,7 @@ import './styles/todo-page.scss';
 import React from 'react';
 import TodoList from './todo-list';
 import TodoStore from '../../stores/todo-store';
-
+TodoStore
 interface Props {
 
 }
