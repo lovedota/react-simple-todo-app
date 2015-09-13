@@ -35,6 +35,7 @@
         "./interfaces/todo.d.ts",
         "./typings/flux/flux.d.ts",
         "./typings/tsd.d.ts",
+        "./app/components/todo/todo-filter.tsx",
         "./app/components/todo/todo-item.tsx",
         "./app/components/todo/todo-list.tsx",
         "./app/components/todo/todo-page.tsx",

@@ -14,23 +14,14 @@ interface Props extends React.Props<any> {
 }
 
 interface State {
-  value?: string;
-  selected?: string;
+
 }
 
-class TodoApp extends React.Component<Props, State> {
-  constructor() {
-    super();
-
-    this.state = {
-      value: '',
-      selected: 'all',
-    };
-  }
+class TodoList extends React.Component<Props, State> {
+  static displayName = "TodoListComponent";
 
   getEndValue() {
-    let {value} = this.state,
-        {todos} = this.props,
+    let {todos} = this.props,
         configs = {};
 
     todos.forEach(todo => {
@@ -60,60 +51,34 @@ class TodoApp extends React.Component<Props, State> {
     };
   }
 
-  handleToggleAll = () => {
-    TodoActions.toggleAllTodos();
-  }
-
-  handleChange = (event: any) => {
-    this.setState({value: event.target.value});
-    TodoActions.filterTodosByText(event.target.value);
-  }
-
   render() {
     return (
-      <div className="todoapp">
-        <header className="header">
-          <h1>todos</h1>
-          <form>
-            <input
-              className="new-todo"
-              placeholder="What needs to be done?"
-              autoFocus={true}
-              value={this.state.value}
-              onChange={this.handleChange}
-            />
-          </form>
-        </header>
-        <section className="main">
-          <input className="toggle-all" type="checkbox" onChange={this.handleToggleAll} />
-          <TransitionSpring
-            endValue={this.getEndValue()}
-            willEnter={this.willEnter}
-            willLeave={this.willLeave}>
-            {currentValue =>
-              <ul className="todo-list">
-                {Object.keys(currentValue).map(key => {
-                  let style = {
-                    height: currentValue[key].height.val,
-                    opacity: currentValue[key].opacity.val,
-                  },
-                  data = currentValue[key].data;
+      <TransitionSpring
+        endValue={this.getEndValue()}
+        willEnter={this.willEnter}
+        willLeave={this.willLeave}>
+        {currentValue =>
+          <ul className="todo-list">
+            {Object.keys(currentValue).map(key => {
+              let style = {
+                height: currentValue[key].height.val,
+                opacity: currentValue[key].opacity.val,
+              },
+              data = currentValue[key].data;
 
-                  return (
-                    <TodoItem
-                      key={key}
-                      style={style}
-                      todo={data}
-                    />
-                  );
-                })}
-              </ul>
-            }
-          </TransitionSpring>
-        </section>
-      </div>
+              return (
+                <TodoItem
+                  key={key}
+                  style={style}
+                  todo={data}
+                />
+              );
+            })}
+          </ul>
+        }
+      </TransitionSpring>
     );
   }
 }
 
-export default TodoApp;
+export default TodoList;

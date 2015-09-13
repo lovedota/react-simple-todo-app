@@ -3,18 +3,21 @@ import './styles/todo-page.scss';
 import React from 'react';
 import TodoList from './todo-list';
 import TodoStore from '../../stores/todo-store';
-TodoStore
+import TodoFilter from './todo-filter';
+
 interface Props {
 
 }
 
 interface State {
   todos: Todo[];
+  filterText: string;
 }
 
 function getStateFromStores(): State {
   return {
-    todos: TodoStore.todos
+    todos: TodoStore.todos,
+    filterText: TodoStore.filterText
   };
 }
 
@@ -33,11 +36,16 @@ class TodoPageComponent extends React.Component<Props, State> {
   }
 
   render() {
-    let {todos} = this.state;
+    let {todos, filterText} = this.state;
 
     return (
-      <div className="row">
-       <TodoList todos={todos}/>
+      <div className="todo-page">
+        <header>
+          <TodoFilter filterText={filterText}/>
+        </header>
+        <section className="main">
+          <TodoList todos={todos}/>
+        </section>
       </div>
     );
   }

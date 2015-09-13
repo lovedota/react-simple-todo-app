@@ -21,6 +21,10 @@ class TodoStore extends BaseStore {
       .filter(todo => todo.text.toUpperCase().indexOf(this._filterText.toUpperCase()) >= 0 );
   }
 
+  get filterText() {
+    return this._filterText;
+  }
+
   @handle(TodoConstants.TODO_LOAD_COMPLETE)
   private convertTodosToViewModel(action: TodoAction) {
     let kv: any = action.todos.map(todo => [todo.id, todo]);
