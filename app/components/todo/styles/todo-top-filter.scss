@@ -1,9 +1,9 @@
-$class: todo-filter;
+$class: todo-top-filter;
 
 .#{$class} {
   .toggle-all {
     position: absolute;
-    top: 10px;
+    top: 48px;
     left: -12px;
     width: 60px;
     height: 34px;

@@ -19,7 +19,7 @@ $class: todo-item;
     padding: 15px 60px 15px 15px;
     margin-left: 45px;
     display: block;
-    line-height: 1.2;
+    line-height: 18px;
     transition: color 0.4s;
   }
 
@@ -67,12 +67,11 @@ $class: todo-item;
     /* auto, since non-WebKit browsers doesn't support input styling */
     height: auto;
     position: absolute;
-    top: 7;
+    top: 0;
     bottom: 0;
     margin: auto 0;
     border: none; /* Mobile Safari */
     -webkit-appearance: none;
-    appearance: none;
 
     &:after {
       content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');

@@ -26,7 +26,7 @@ module.exports = {
             },
             {
               test: /\.scss$/,
-              loader: ExtractTextPlugin.extract('style-loader', 'css-loader!autoprefixer-loader?browsers=last 2 versions!sass-loader?includePaths[]='+ path.resolve(__dirname, "./node_modules"))
+              loader: ExtractTextPlugin.extract('style-loader', 'css-loader!autoprefixer-loader?{browsers:["last 2 version", "Firefox 15"]}!sass-loader?includePaths[]='+ path.resolve(__dirname, "./node_modules"))
             },
             {
               test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,

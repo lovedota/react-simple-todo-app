@@ -1,0 +1,26 @@
+$class: todo-command-buttons;
+
+.#{$class} {
+  button {
+    border-style: solid;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-style: normal;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: all 200ms ease-in-out 0s;
+    white-space: nowrap;
+    font-weight: 700;
+    padding: 8px;
+    font-size: 14px;
+
+    &.add-new-button {
+      border-color: #326E99;
+      background-color: #3F8ABF;
+      float: right;
+    }
+  }
+}

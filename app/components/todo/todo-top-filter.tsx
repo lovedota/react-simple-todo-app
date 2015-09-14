@@ -1,4 +1,4 @@
-import './styles/todo-filter.scss';
+import './styles/todo-top-filter.scss';
 
 import React from 'react';
 import classNames from "classnames";
@@ -19,7 +19,7 @@ class TodoFilterComponent extends React.Component<Props, State> {
     let {filterText} = this.props;
 
     return (
-      <section className="todo-filter">
+      <section className="todo-top-filter">
         <h1>todos</h1>
         <form>
           <input

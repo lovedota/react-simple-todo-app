@@ -26,9 +26,23 @@ class TodoActions {
     });
   }
 
+  filterTodosByType(filterType) {
+    Dispatcher.dispatch({
+      type: TodoConstants.TODO_FILTER_TYPE,
+      filterType
+    });
+  }
+
   toggleAllTodos() {
     Dispatcher.dispatch({
       type: TodoConstants.TODO_TOGGLE_ALL,
+    });
+  }
+
+  addTodo(text) {
+    Dispatcher.dispatch({
+      type: TodoConstants.TODO_ADD,
+      text
     });
   }
 
@@ -36,6 +50,12 @@ class TodoActions {
     Dispatcher.dispatch({
       type: TodoConstants.TODO_REMOVE,
       todoId
+    });
+  }
+
+  clearCompletedTodos() {
+    Dispatcher.dispatch({
+      type: TodoConstants.TODO_CLEAR_COMPLETED
     });
   }
 }

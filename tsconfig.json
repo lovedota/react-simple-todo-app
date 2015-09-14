@@ -17,6 +17,7 @@
         "./app/actions/todo-actions.ts",
         "./app/constants/todo-constants.ts",
         "./app/cores/dispatcher.ts",
+        "./app/cores/enums.ts",
         "./app/decorators/handle-decorator.ts",
         "./app/decorators/log-class-decorator.ts",
         "./app/helpers/interaction-helpers.ts",
@@ -35,10 +36,12 @@
         "./interfaces/todo.d.ts",
         "./typings/flux/flux.d.ts",
         "./typings/tsd.d.ts",
-        "./app/components/todo/todo-filter.tsx",
+        "./app/components/todo/todo-bottom-filter.tsx",
+        "./app/components/todo/todo-command-buttons.tsx",
         "./app/components/todo/todo-item.tsx",
         "./app/components/todo/todo-list.tsx",
         "./app/components/todo/todo-page.tsx",
+        "./app/components/todo/todo-top-filter.tsx",
         "./app/main.tsx"
     ],
     "exclude": [
