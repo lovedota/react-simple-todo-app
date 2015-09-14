@@ -30,8 +30,8 @@
 #### File Naming and Type
 - **File Naming**: All lower case, start with the module you are working, separate by *dash*. Example
   > - todo-page.tsx
-  - todo-list.tsx
-  - todo-item.tsx
+  > - todo-list.tsx
+  > - todo-item.tsx
 
 - **Code Naming**:
   - **PascalCase** for Class/Module like
@@ -54,7 +54,7 @@
 
 - **Type**
   > - *.tsx for React-Component
-  - *.ts for Non React-Component
+  > - *.ts for Non React-Component
 
 #### Private, Public, Static
 - **Private**: Private function need to be after Public function, and it needs to have *private* modifier before function name.
