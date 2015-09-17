@@ -15,7 +15,7 @@ interface State {
 class TodoCommandButtonsComponent extends React.Component<Props, State> {
   static displayName = "TodoFilterComponent";
 
-	render() {
+	render(): JSX.Element {
     return (
       <div className="todo-command-buttons">
         <button
@@ -28,7 +28,7 @@ class TodoCommandButtonsComponent extends React.Component<Props, State> {
     );
 	}
 
-  private handleAddNewClick = (event: any) => {
+  private handleAddNewClick = () => {
     let todoText = prompt('What is new Todo ?');
 
     if (todoText) {

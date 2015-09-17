@@ -35,7 +35,7 @@ class TodoActions {
 
   toggleAllTodos() {
     Dispatcher.dispatch({
-      type: TodoConstants.TODO_TOGGLE_ALL,
+      type: TodoConstants.TODO_TOGGLE_ALL
     });
   }
 

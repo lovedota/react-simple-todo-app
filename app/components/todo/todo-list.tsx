@@ -26,8 +26,8 @@ class TodoList extends React.Component<Props, State> {
 
     todos.forEach(todo => {
       configs[todo.id] = {
-        height: {val: 50},
-        opacity: {val: 1},
+        height: spring(60, presets.gentle),
+        opacity: spring(1, presets.gentle),
         data: todo,
       };
     });
@@ -37,16 +37,16 @@ class TodoList extends React.Component<Props, State> {
 
   willEnter = (key) => {
     return {
-      height: {val: 50},
-      opacity: {val: 1},
+      height: spring(0),
+      opacity: spring(1),
       data: this.props.todos.filter(todo => todo.id === key),
     };
   }
 
   willLeave = (key, value, endValue, currentValue, currentSpeed) => {
     return {
-      height: {val: 0},
-      opacity: {val: 0},
+      height: spring(0),
+      opacity: spring(0),
       data: currentValue[key].data,
     };
   }

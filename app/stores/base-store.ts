@@ -14,7 +14,6 @@ class BaseStore extends EventEmitter {
 
   constructor(changeEventName) {
     super();
-    
     this.changeEventName = changeEventName;
 
     this.dispatchToken = Dispatcher.register((action: Action) => {

@@ -1,7 +1,7 @@
 import BaseStore from "./base-store";
 import TodoConstants from "../constants/todo-constants";
 import handle from "../decorators/handle-decorator";
-import {FilterType} from '../cores/enums';
+import {FilterType} from "../cores/enums";
 
 interface TodoAction {
   filterText?: string;
@@ -20,7 +20,7 @@ class TodoStore extends BaseStore {
     super(TodoConstants.TODO_CHANGE_EVENT);
   }
 
-  get todos() {
+  get todos(): Todo[] {
     return [...this._todos.values()]
       .filter(todo =>
         todo.text.toUpperCase().indexOf(this._filterText.toUpperCase()) >= 0 &&
@@ -30,19 +30,22 @@ class TodoStore extends BaseStore {
       );
   }
 
-  get filterText() {
+  get filterText(): string {
     return this._filterText;
   }
 
-  get filterType() {
+  get filterType(): FilterType {
     return this._filterType;
   }
 
+  /* tslint:disable:no-unused-variable  */
+
   @handle(TodoConstants.TODO_LOAD_COMPLETE)
   private convertTodosToViewModel(action: TodoAction) {
-    let kv: any = action.todos.map(todo => [todo.id, todo]);
+    action.todos.forEach(todo => {
+      this._todos.set(todo.id, todo);
+    });
 
-    this._todos = new Map<any, Todo>(kv);
     this.emitChange();
   }
 
@@ -53,7 +56,7 @@ class TodoStore extends BaseStore {
   }
 
   @handle(TodoConstants.TODO_TOGGLE)
-  private toggleTodo(action: TodoAction) {
+  private toggleTodo(action: TodoAction): void {
     let todo = this._todos.get(action.todoId);
 
     todo.isDone = !todo.isDone;
@@ -61,7 +64,7 @@ class TodoStore extends BaseStore {
   }
 
   @handle(TodoConstants.TODO_TOGGLE_ALL)
-  private toggleAllTodos(action: TodoAction) {
+  private toggleAllTodos(action: TodoAction): void {
     let todos = this._todos,
       allDone = [...todos.values()].every(todo => todo.isDone);
 
@@ -70,13 +73,13 @@ class TodoStore extends BaseStore {
   }
 
   @handle(TodoConstants.TODO_REMOVE)
-  private removeTodo(action: TodoAction) {
+  private removeTodo(action: TodoAction): void {
     this._todos.delete(action.todoId);
     this.emitChange();
   }
 
   @handle(TodoConstants.TODO_ADD)
-  private addTodo(action: TodoAction) {
+  private addTodo(action: TodoAction): void {
     let newTodo: Todo = {
       id: Math.random().toString(),
       text: action.text,
@@ -88,13 +91,13 @@ class TodoStore extends BaseStore {
   }
 
   @handle(TodoConstants.TODO_FILTER_TYPE)
-  private filterTodosByType(action: TodoAction) {
+  private filterTodosByType(action: TodoAction): void {
     this._filterType = action.filterType;
     this.emitChange();
   }
 
   @handle(TodoConstants.TODO_CLEAR_COMPLETED)
-  private clearCompletedTodos(action: TodoAction) {
+  private clearCompletedTodos(action: TodoAction): void {
     let todos = this._todos;
 
     for (let [key, todo] of todos.entries()) {
@@ -105,6 +108,8 @@ class TodoStore extends BaseStore {
 
     this.emitChange();
   }
+
+  /* tslint:enable:no-unused-variable */
 }
 
 export default new TodoStore();

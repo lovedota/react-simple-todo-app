@@ -17,7 +17,7 @@ interface State {
 class TodoItemComponent extends React.Component<Props, State> {
   static displayName = "TodoItemComponent";
 
-	render() {
+	render(): JSX.Element {
     let {style, todo} = this.props,
       cssClasses = classNames('todo-item', {'completed': todo.isDone});
 
@@ -40,12 +40,12 @@ class TodoItemComponent extends React.Component<Props, State> {
     );
 	}
 
-  private handleDone = (key) => {
-    TodoActions.toggleTodo(key);
+  private handleDone = (todoId: string): void => {
+    TodoActions.toggleTodo(todoId);
   }
 
-  private handleDestroy = (key) => {
-    TodoActions.removeTodo(key);
+  private handleDestroy = (todoId: string): void => {
+    TodoActions.removeTodo(todoId);
   }
 }
 

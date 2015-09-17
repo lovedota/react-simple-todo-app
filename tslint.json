@@ -45,7 +45,7 @@
       "check-else",
       "check-whitespace"
     ],
-    "indent": [true, "tabs", 2],
+    "indent": [true, "spaces", 2],
     "quotemark": [true, "double"],
     "radix": true,
     "semicolon": true,
